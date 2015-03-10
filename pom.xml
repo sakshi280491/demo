@@ -12,9 +12,8 @@
 	</modules>
 
 	<properties>
-		<!-- Convenience property to set the GWT version -->
 		<gwtVersion>2.5.0-rc1</gwtVersion>
-		<!-- GWT needs at least java 1.5 -->
+		<gxtVersion>2.3.0-gwt22</gxtVersion>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
