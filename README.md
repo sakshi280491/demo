@@ -59,11 +59,10 @@ This project does not contain following components, which are not owned nor supp
 ## License
 This project is released under version 2.0 of the Apache License.
 
-* EMC Documentum D2 is a registered trademark of EMC Corporation.
+* EMC Documentum D2, DFC, D2FS, D2 Open Ajax Hub are registered trademarks of EMC Corporation.
 * Google Web Toolkit (GWT) is a registered trademark of Google Inc.
 * GXT (Ext-GWT) is a registered trademark of Sencha Inc.
 
-Creator of this project claims no intellectual property rights over this libraries nor take responsibility for any kind of damage caused by using it.
+Creator(s) of this project claims no intellectual property rights over this libraries nor take responsibility for any kind of damage caused by using it.
 
 [Tutorial1]:https://community.emc.com/people/KJurkowski/blog/2015/03/10/gxt-d2-widgets--part-1
-[Javadoc]:
