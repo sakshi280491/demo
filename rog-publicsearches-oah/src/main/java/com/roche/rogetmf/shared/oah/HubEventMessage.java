@@ -19,7 +19,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /**
  * Represents the JS object supplied by OAH on event callback 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class HubEventMessage extends JavaScriptObject {

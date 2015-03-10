@@ -21,7 +21,7 @@ import com.google.gwt.core.client.JsArrayString;
 /**
  * Represents a message send or received via OAH
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class OpenAjaxMessage extends JavaScriptObject {

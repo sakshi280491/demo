@@ -20,7 +20,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * Extension of the AsyncCallback for handling communication with D2 action services
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  * @param <D>
  */

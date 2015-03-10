@@ -23,7 +23,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * Factory class for OAH client creation
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class OpenAjaxHubFactory {

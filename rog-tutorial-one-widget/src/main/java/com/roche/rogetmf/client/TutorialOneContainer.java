@@ -32,7 +32,7 @@ import com.roche.rogetmf.shared.oah.OpenAjaxMessageFactory;
  * Simple widget demonstrating OAH communication with a widget
  * The widget listens to the object selection event, and allows to bump the selected object
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class TutorialOneContainer extends LayoutContainer {

@@ -17,7 +17,7 @@ package com.roche.rogetmf.shared.oah;
 
 /**
  * JSNI factory for OAH message
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class OpenAjaxMessageFactory {

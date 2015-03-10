@@ -29,7 +29,7 @@ import com.roche.rogetmf.shared.oah.OpenAjaxHubFactory;
 /**
  * Entry point for the widget - responsible for establishing connection with Open Ajax Hub and initializing the GUI
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class TutorialOne implements EntryPoint {

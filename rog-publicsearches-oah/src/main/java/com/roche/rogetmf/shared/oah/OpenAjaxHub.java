@@ -22,7 +22,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 /**
  * JSNI interface for the OAH client
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class OpenAjaxHub extends JavaScriptObject {
