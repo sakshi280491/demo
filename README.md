@@ -8,32 +8,32 @@ This tutorials are also a case study of advanced D2 customization topics like:
 * Building a custom GXT tree using BrowserContentD2fsService
 
 ## Download
-This project is published incrementally, adding one tutorial after another. Eventually it will contain all components necessary to create the most advanced component, described in the last tutorial. 
+This project is published incrementally, adding one tutorial after another. Eventually it will contain all modules necessary to create the most advanced component, described in the last tutorial. 
 
 ## Documentation
-See the current [Javadoc][] and [reference docs][].
 A primary source of information are the tutorials published on EMC Community network:
 * [Tutorial1][]
 
+See also the current [Javadoc][].
+
 ## Building from Source
-Project consists of multiple maven components which combined form a frontend and backend for a D2 widget.
-Depending on your needs some modules are mandatory, some are optional:
+Project consists of multiple maven modules, which combined form a frontend and backend for a D2 widget.
+Depending on your needs or tutorial which you want to study, some modules are mandatory and some are optional:
 
 Mandatory modules:
 * rog-publicsearches-oah - JSNI wrapper for D2 Open Ajax Hub.
 
 Optional modules:
-* rog-publicsearches-d2fs - Container for D2FC services generated client. The only custom code in this module is the ModelPortServiceFactory class, which allows to fetch service from any remote d2fs.wsld and supports caching of the service instance.
+* rog-publicsearches-d2fs - Container for D2FS services generated client. The only custom code in this module is the ModelPortServiceFactory class, which allows to fetch service from any remote d2fs.wsld and supports caching of the service instance.
 
 Tutorial modules:
-* rog-tutorial-one-widget - Demonstrates how to use rog-publicsearches-oah in a simple GXT project
-* rog-publicsearches-widget - Demonstrates how to create a custom Public searches widget.
-* rog-publicsearches-d2-api - Provides abstract classes for interrogating with D2:
+* rog-publicsearches-d2-api - provides abstract classes for interrogating with D2:
   * AbstractD2fsService - service class providing access to D2FS services
   * AbstractCallbackAction - provides schema for communication with Open Ajax Hub (OAH) triggered by D2_ACTION_EXECUTE event
-  * AbstractWebfsService - service class providing access to repository via DFC classes
-  This module provides sample classes used in the tutorials, based on the abstract classes described above.
-* rog-publicsearches-d2-plugin - contains the code for the most advanced, last tutorial. Takes advantage of rog-publicsearches-d2-api. This module is exposing services, which can be utilized by the widget via 
+  * AbstractWebfsService - service class providing access to repository via DFC
+* rog-publicsearches-plugin - this module provides sample classes used in the tutorials, based on the abstract classes described above
+* rog-tutorial-one-widget - demonstrates how to use rog-publicsearches-oah in a simple GXT project
+* rog-publicsearches-widget - contains the code for the most advanced, last tutorial - how to create a custom D2 Public searches widget. Takes advantage of rog-publicsearches-d2-api. This module is exposing services, which can be utilized by the widget via 
 
 ### Prerequisites
 This project does not contain following components, which are not owned nor supported by Roche:
@@ -59,4 +59,11 @@ This project does not contain following components, which are not owned nor supp
 ## License
 This project is released under version 2.0 of the Apache License.
 
+* EMC Documentum D2 is a registered trademark of EMC Corporation.
+* Google Web Toolkit (GWT) is a registered trademark of Google Inc.
+* GXT (Ext-GWT) is a registered trademark of Sencha Inc.
+
+Creator of this project claims no intellectual property rights over this libraries nor take responsibility for any kind of damage caused by using it.
+
 [Tutorial1]:https://community.emc.com/people/KJurkowski/blog/2015/03/10/gxt-d2-widgets--part-1
+[Javadoc]:
