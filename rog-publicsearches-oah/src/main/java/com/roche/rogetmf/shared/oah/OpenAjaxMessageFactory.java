@@ -24,7 +24,7 @@ public class OpenAjaxMessageFactory {
 
 	/**
 	 * Creates an instance of Open Ajax Message
-	 * @return Instance of Open Ajax Message
+	 * @return New instance of Open Ajax Message
 	 */
 	//@formatter:off
 	public static native OpenAjaxMessage create() /*-{ 

@@ -44,16 +44,14 @@ public class OpenAjaxMessage extends JavaScriptObject {
 	/**
 	 * Returns id of the object associated with the message. If message contains multiple ids, only the first one is returned.
 	 * 
-	 * @return
+	 * @return id of the object associated with the message
 	 */
 	public final String getId() {
 		return getId(false);
 	}
 
 	/**
-	 * Returns value associated with the message.
-	 * 
-	 * @return
+	 * @return value associated with the message
 	 */
 	public final String getValue() {
 		return getParameter("oam_value");
@@ -62,7 +60,7 @@ public class OpenAjaxMessage extends JavaScriptObject {
 	/**
 	 * Sets value associated with the message.
 	 * 
-	 * @param value
+	 * @param value Value associated with the message
 	 */
 	public final void setValue(String value) {
 		setParameter("oam_value", value);

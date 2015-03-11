@@ -103,7 +103,7 @@ public class TutorialOneContainer extends LayoutContainer {
 
 	/**
 	 * Returns id of object selected by a user
-	 * @return the selectedObjectId
+	 * @return id of object selected by a user
 	 */
 	public String getSelectedObjectId() {
 		return selectedObjectId;

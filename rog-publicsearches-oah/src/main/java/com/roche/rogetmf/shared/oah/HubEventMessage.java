@@ -25,9 +25,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class HubEventMessage extends JavaScriptObject {
 	protected HubEventMessage() {}
 
-	/**
-	 * Returns the name of the event that triggered the callback 
-	 * @return
+	/** 
+	 * @return name of the event that triggered the callback
 	 */
 	//@formatter:off
 	public final native String getEventName()/*-{ 
@@ -36,8 +35,7 @@ public class HubEventMessage extends JavaScriptObject {
 	}-*/;
 	
 	/**
-	 * Returns the OAH message that arrived with the event
-	 * @return
+	 * @return OAH message that arrived with the event
 	 */
 	public final native OpenAjaxMessage getMessage()/*-{ 
 		console.debug("HubEventMessage::getMessage");

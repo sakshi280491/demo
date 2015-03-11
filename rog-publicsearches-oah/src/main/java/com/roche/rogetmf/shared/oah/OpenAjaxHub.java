@@ -55,7 +55,7 @@ public class OpenAjaxHub extends JavaScriptObject {
 	 * @param msg
 	 *            Message sent to the service
 	 * @param callback
-	 *            Callback object triggered on service response
+	 *            Callback object triggered on service response. Service message is passed to the onSuccess method of the callback handler.
 	 */
 	public final void callService(String service, String method, OpenAjaxMessage msg, ServiceCallback<OpenAjaxMessage> callback) {
 		msg.setParameter("CHANNEL_EVENT", "D2_ACTION_EXECUTE");
@@ -69,9 +69,7 @@ public class OpenAjaxHub extends JavaScriptObject {
 	}
 
 	/**
-	 * Returns the widget's context string
-	 * 
-	 * @return
+	 * @return widget's context string
 	 */
 	//@formatter:off
 	public final native String getContextUid() /*-{
@@ -79,16 +77,14 @@ public class OpenAjaxHub extends JavaScriptObject {
 	}-*/;
 	
 	/**
-	 * Returns the identifier of the widget
-	 * @return
+	 * @return identifier of the widget
 	 */
 	public final native String getWidgetId() /*-{
 		return this.sWidgetId;
 	}-*/;
 	
 	/**
-	 * Returns the type of the widget, i.e. ExternalWidget
-	 * @return
+	 * @return type of the widget, i.e. ExternalWidget
 	 */
 	public final native String getWidgetType() /*-{
 		return this.sWidgetType;
@@ -103,8 +99,7 @@ public class OpenAjaxHub extends JavaScriptObject {
 	}-*/;
 	
 	/**
-	 * Returns the list of channels to which the widget can subscribe
-	 * @return
+	 * @return list of channels to which the widget can subscribe
 	 */
 	public final native JsArrayString getRegisteredChannels() /*-{
 		return this.registeredChannels;
@@ -122,7 +117,9 @@ public class OpenAjaxHub extends JavaScriptObject {
 	}-*/;
 	
 	/**
-	 * Subscribes to an OAH event
+	 * Adds an asynchronous callback handler for an event to which the OAH client subscribed.
+	 * When the event is raised, callback's onSuccess method will be called. 
+	 * The OAH message that came with the event, will be passed to the onSuccess method.
 	 * @param eventName Name of the event
 	 * @param callback Callback object triggered on the event
 	 */

@@ -164,30 +164,72 @@ public class OpenAjaxHubFactory {
 		this.oahCallback = oahCallback;
 	}
 
+	/**
+	 * Sets the callback handler raised when OAH connection is established (might be an notification of a connection error as well)
+	 * 
+	 * @param connectCompletedCallback
+	 *            callback handler
+	 */
 	public void setConnectCompletedCallback(AsyncCallback<HubConnectionMessage> connectCompletedCallback) {
 		this.connectCompletedCallback = connectCompletedCallback;
 	}
 
+	/**
+	 * Sets the callback handler raised on widget activation
+	 * 
+	 * @param activeWidgetCallback
+	 *            callback handler
+	 */
 	public void setActiveWidgetCallback(AsyncCallback<Boolean> activeWidgetCallback) {
 		this.activeWidgetCallback = activeWidgetCallback;
 	}
 
+	/**
+	 * Sets the callback handler raised on widget initialization
+	 * 
+	 * @param initWidgetCallback
+	 *            callback handler
+	 */
 	public void setInitWidgetCallback(AsyncCallback<OpenAjaxMessage> initWidgetCallback) {
 		this.initWidgetCallback = initWidgetCallback;
 	}
 
+	/**
+	 * Sets the callback handler raised on event to which the widget has subscribed
+	 * 
+	 * @param oahCallback
+	 *            callback handler
+	 */
 	private void setOahCallback(AsyncCallback<HubEventMessage> oahCallback) {
 		this.oahCallback = oahCallback;
 	}
 
 	/**
-	 * Connect the OAH client to D2
+	 * Connects the OAH client to D2
 	 */
 	public void connect() {
 		connect(handleMessageIfInactive, subscribedChannels, connectCompletedCallback, activeWidgetCallback, initWidgetCallback,
 				oahCallback);
 	}
 
+	/**
+	 * Connects the OAH client to D2 and assigns given callback handlers to to all OAH events (initialization, connection, activation,
+	 * event).
+	 * 
+	 * @param handleMessageIfInactive
+	 *            <code>true</code> if widget should receive events if inactive
+	 * @param subscribedChannels
+	 *            List of channels to which the widget should subscribe. If widget is calling D2 action services, it must subscribe to
+	 *            D2_EVENT_CUSTOM event
+	 * @param connectCompletedCallback
+	 *            Callback raised when OAH connection is established (might be an notification of a connection error as well)
+	 * @param activeWidgetCallback
+	 *            Callback raised on widget activation
+	 * @param initWidgetCallback
+	 *            Callback raised on widget initialization
+	 * @param oahCallback
+	 *            Callback raised on event to which the widget has subscribed
+	 */
 	//@formatter:off
 	private native void connect(boolean handleMessageIfInactive, String[] subscribedChannels,
 			AsyncCallback<HubConnectionMessage> connectCompletedCallback, AsyncCallback<Boolean> activeWidgetCallback,

@@ -32,6 +32,9 @@ public abstract class ServiceCallback<D> implements AsyncCallback<D> {
 
 	abstract public void onFailure(Throwable caught);
 
+	/**
+	 * Called when D2 action services returns a message to the OAH
+	 */
 	abstract public void onSuccess(D result);
 
 	public String getCallbackWrapperCode() {
