@@ -65,5 +65,5 @@ This project is released under version 2.0 of the Apache License.
 
 Creator(s) of this project claims no intellectual property rights over this libraries nor take responsibility for any kind of damage caused by using it.
 
-[Tutorial1]:http://community.emc.com/people/KJurkowski/blog/2015/03/10/gxt-d2-widgets--part-1
+[Tutorial1]:http://community.emc.com/people/KJurkowski/blog/2015/03/17/gxt-d2-widgets--part-1
 [Javadoc]:http://roche.github.io/ROGeTMF/javadoc/
