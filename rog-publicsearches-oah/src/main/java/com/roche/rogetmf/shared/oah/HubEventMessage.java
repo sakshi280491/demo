@@ -31,6 +31,7 @@ public class HubEventMessage extends JavaScriptObject {
 	//@formatter:off
 	public final native String getEventName()/*-{ 
 		console.log("HubEventMessage::getEventName");
+		
 		return this.eventName; 
 	}-*/;
 	
@@ -39,6 +40,7 @@ public class HubEventMessage extends JavaScriptObject {
 	 */
 	public final native OpenAjaxMessage getMessage()/*-{ 
 		console.log("HubEventMessage::getMessage");
+		
 		return this.message; 
 	}-*/;
 	

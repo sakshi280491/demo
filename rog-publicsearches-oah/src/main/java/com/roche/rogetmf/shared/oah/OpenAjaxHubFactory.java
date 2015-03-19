@@ -235,7 +235,6 @@ public class OpenAjaxHubFactory {
 			AsyncCallback<HubConnectionMessage> connectCompletedCallback, AsyncCallback<Boolean> activeWidgetCallback,
 			AsyncCallback<OpenAjaxMessage> initWidgetCallback, AsyncCallback<HubEventMessage> oahCallback) /*-{ 
 		console.log("[OpenAjaxHubFactory] connect");
-		
 		console.log("[OpenAjaxHubFactory] create - creating eventCallbackTable");
 		$wnd.eventCallbackTable = {};
 		
