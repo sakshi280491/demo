@@ -236,16 +236,16 @@ public class OpenAjaxHubFactory {
 			AsyncCallback<OpenAjaxMessage> initWidgetCallback, AsyncCallback<HubEventMessage> oahCallback) /*-{ 
 		console.log("[OpenAjaxHubFactory] connect");
 		
-		console.debug("[OpenAjaxHubFactory] create - creating eventCallbackTable");
+		console.log("[OpenAjaxHubFactory] create - creating eventCallbackTable");
 		$wnd.eventCallbackTable = {};
 		
-		console.debug("[OpenAjaxHubFactory] create - creating serviceCallbackTable");
+		console.log("[OpenAjaxHubFactory] create - creating serviceCallbackTable");
 		$wnd.serviceCallbackTable = {};
 		
-		console.debug("[OpenAjaxHubFactory] create - declaring oahCallback");
+		console.log("[OpenAjaxHubFactory] create - declaring oahCallback");
 		
 		$wnd.oahCallbackWrapper = function(sChannel, oMessage) {
-			console.debug("[OpenAjaxHubFactory] oahCallback event captured: " + sChannel);
+			console.log("[OpenAjaxHubFactory] oahCallback event captured: " + sChannel);
 
 			var hubEventMessage = {};
 			hubEventMessage.eventName = sChannel;
@@ -254,7 +254,7 @@ public class OpenAjaxHubFactory {
 			oahCallback.@com.google.gwt.user.client.rpc.AsyncCallback::onSuccess(*)(hubEventMessage);
 	    };
 		
-		console.debug("[OpenAjaxHubFactory] create - declaring connectCompletedCallbackWrapper");
+		console.log("[OpenAjaxHubFactory] create - declaring connectCompletedCallbackWrapper");
 		$wnd.connectCompletedCallbackWrapper = function(oHubClient, bSuccess, bError) {
 			console.log("[OpenAjaxHubFactory] OpenAjaxHub connected: " + bSuccess);
 			
@@ -274,12 +274,12 @@ public class OpenAjaxHubFactory {
 			
 		};
 		
-		console.debug("[OpenAjaxHubFactory] create - declaring initWidgetCallbackWrapper");
+		console.log("[OpenAjaxHubFactory] create - declaring initWidgetCallbackWrapper");
 		$wnd.initWidgetCallbackWrapper = function(oMessage) {
 			initWidgetCallback.@com.google.gwt.user.client.rpc.AsyncCallback::onSuccess(*)(oMessage);
 		};
 		
-		console.debug("[OpenAjaxHubFactory] create - declaring activeWidgetCallbackWrapper");
+		console.log("[OpenAjaxHubFactory] create - declaring activeWidgetCallbackWrapper");
 		$wnd.activeWidgetCallbackWrapper = function(bActiveFlag) {
 			activeWidgetCallback.@com.google.gwt.user.client.rpc.AsyncCallback::onSuccess(*)(@java.lang.Boolean::valueOf(Z)(bActiveFlag));
 		};
@@ -300,7 +300,7 @@ public class OpenAjaxHubFactory {
     		var eventCallbackHandlers = $wnd.eventCallbackTable[sChannel];	
     		
     		if(Array.isArray(eventCallbackHandlers)) {
-    			console.debug("[OpenAjaxHubFactory] Calling callback(s) of event " + sChannel);
+    			console.log("[OpenAjaxHubFactory] Calling callback(s) of event " + sChannel);
         		
         		var arrayLength = eventCallbackHandlers.length;
         		if(arrayLength == 0) {
@@ -332,7 +332,7 @@ public class OpenAjaxHubFactory {
 	private native boolean callServiceCallback(String sService, String sMethod, String sCallbackCode, OpenAjaxMessage oMessage) /*-{ 
 		// check if there is a callback for the callbackCode
 		if(typeof $wnd.serviceCallbackTable[sCallbackCode] != "undefined") {
-    		console.debug("[OpenAjaxHubFactory] Calling callback of service: " + sService + "." + sMethod);
+    		console.log("[OpenAjaxHubFactory] Calling callback of service: " + sService + "." + sMethod);
     		
     		var serviceCallback = $wnd.serviceCallbackTable[sCallbackCode];
     		serviceCallback(oMessage);

@@ -31,7 +31,7 @@ public class HubConnectionMessage extends JavaScriptObject {
 	 */
 	//@formatter:off
 	public final native OpenAjaxHub getHubClient()/*-{ 
-		console.debug("HubConnectionMessage::getHubClient");
+		console.log("HubConnectionMessage::getHubClient");
 		return this.hubClient; 
 	}-*/;
 	
@@ -40,7 +40,7 @@ public class HubConnectionMessage extends JavaScriptObject {
 	 * @return <code>true</code> is connection was successful
 	 */
 	public final native boolean isSuccess()/*-{ 
-		console.debug("HubConnectionMessage::isSuccess: " + this.success);
+		console.log("HubConnectionMessage::isSuccess: " + this.success);
 		return this.success; 
 	}-*/;
 	
@@ -50,7 +50,7 @@ public class HubConnectionMessage extends JavaScriptObject {
 	 * @return <code>true</code> is connection was unsuccessful
 	 */
 	public final native boolean isError()/*-{ 
-		console.debug("HubConnectionMessage::isError: " + this.error);
+		console.log("HubConnectionMessage::isError: " + this.error);
 		return this.error; 
 	}-*/;
 }
