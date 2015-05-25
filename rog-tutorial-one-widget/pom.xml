@@ -2,18 +2,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.roche.rogetmf</groupId>
-		<artifactId>rog-publicsearches</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+	<groupId>com.roche.rogetmf</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<artifactId>rog-tutorial-one-widget</artifactId>
-	<packaging>war</packaging>
-
 	<name>ROG-Tutorial-One-Widget</name>
-	<url>http://maven.apache.org</url>
+	<packaging>war</packaging>
+	<organization>
+		<name>Hoffmann-La Roche</name>
+		<url>http://it.roche.pl/en</url>
+	</organization>
 
 	<properties>
+		<gwtVersion>2.5.0</gwtVersion>
+	
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

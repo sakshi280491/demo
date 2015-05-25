@@ -7,8 +7,6 @@
 	<packaging>pom</packaging>
 	<name>ROG-PublicSearches</name>
 	<modules>
-		<module>rog-publicsearches-oah</module>
-		<module>rog-tutorial-one-widget</module>
 	</modules>
 
 	<properties>
