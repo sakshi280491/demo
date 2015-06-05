@@ -16,7 +16,6 @@
 		<gxtVersion>2.3.0-gwt22</gxtVersion>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.scm.id>github-roche-rogetmf</project.scm.id>
 	</properties>
 
 	<profiles>
@@ -51,12 +50,19 @@
 		</profile>
 	</profiles>
 
-    <scm>
-        <connection>scm:git:https://github.com/Roche/ROGeTMF.git</connection>
-        <developerConnection>scm:git:https://github.com/Roche/ROGeTMF.git</developerConnection>
-        <url>scm:git:https://github.com/Roche/ROGeTMF.git</url>
-        <tag>HEAD</tag>
-    </scm>
+	<scm>
+		<connection>scm:git:https://github.com/Roche/ROGeTMF.git</connection>
+		<developerConnection>scm:git:https://github.com/Roche/ROGeTMF.git</developerConnection>
+		<url>scm:git:https://github.com/Roche/ROGeTMF.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>github-roche-rogetmf</id>
+			<url>scm:git:https://github.com/Roche/ROGeTMF.git</url>
+		</site>
+	</distributionManagement>
 
 	<build>
 		<plugins>
