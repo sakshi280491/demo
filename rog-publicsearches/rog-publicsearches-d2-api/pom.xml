@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.roche.rogetmf</groupId>
 		<artifactId>rog-publicsearches</artifactId>
-		<version>0.0.4-SNAPSHOT</version>
+		<version>0.0.5-SNAPSHOT</version>
 	</parent>
 	<artifactId>rog-publicsearches-d2-api</artifactId>
 	<name>ROG-Publicsearches-D2-API</name>
