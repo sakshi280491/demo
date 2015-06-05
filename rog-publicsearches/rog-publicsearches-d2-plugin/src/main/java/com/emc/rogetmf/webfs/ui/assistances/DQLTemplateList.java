@@ -5,13 +5,10 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +25,7 @@ import com.emc.d2fs.dctm.ui.DialogProcessor;
 import com.emc.d2fs.dctm.ui.assistances.IJavaAssistance;
 import com.emc.d2fs.dctm.web.services.D2fsContext;
 import com.emc.d2fs.exceptions.D2fsException;
+import com.emc.rogetmf.webfs.ui.assistance.DQLTemplateUtils;
 import com.emc.rogetmf.webfs.ui.dynamiccontrols.DQLTemplateControl;
 
 import freemarker.cache.StringTemplateLoader;
@@ -152,7 +150,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 	 * @return
 	 */
 	private String getDQLTemplete(Map<String, Object> attributes) {
-		return getHiddenControlValue(attributes, DQLTemplateControl.ATTR_DQL_TEMPLATE);
+		return DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_DQL_TEMPLATE);
 	}
 
 	/**
@@ -162,7 +160,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 	 * @return
 	 */
 	private String getLabelTemplete(Map<String, Object> attributes) {
-		return getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE, true);
+		return DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE, true);
 	}
 
 	/**
@@ -174,7 +172,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 	private String[] getLabelTempleteAttrs(Map<String, Object> attributes) {
 		String[] labelTempleteAttrsArr = null;
 
-		String labelTempleteAttrs = getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE_ATTRS, true);
+		String labelTempleteAttrs = DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE_ATTRS, true);
 
 		if (StringUtils.isNotBlank(labelTempleteAttrs))
 			labelTempleteAttrsArr = StringUtils.split(labelTempleteAttrs, LABEL_TEMPLATE_ATTRS_DELIM);
@@ -194,82 +192,5 @@ public final class DQLTemplateList implements IJavaAssistance {
 		}
 
 		return labelTempleteAttrsArr;
-	}
-
-	private String getHiddenControlValue(Map<String, Object> attributes, String controlId) {
-		boolean evaluateOnInit = BooleanUtils.toBoolean((String) attributes.get(DQLTemplateControl.ATTR_EVALUATE_ON_INIT));
-		return getHiddenControlValue(attributes, controlId, evaluateOnInit);
-	}
-	
-	/**
-	 * Returns value of hidden control. Hidden controls are used to support evaluation of options for a dynamic control. If the dynamic
-	 * control has dependencies (other controls which impact it's value) and property page is being initialized, this method will return
-	 * null.
-	 * 
-	 * @param attributes
-	 * @return
-	 */
-	private String getHiddenControlValue(Map<String, Object> attributes, String controlId, boolean evaluateOnInit) {
-		// when the dialog is initialized, non standard attributes are included in the attributes map
-		String controlValue = (String) attributes.get(controlId);
-
-		// if list of is empty we can return the value of hidden control during property page initialization
-		if (evaluateOnInit || hasNoDependencies(attributes))
-			return controlValue;
-
-		// otherwise, if control has dependencies, first the properties screen needs to be initialized
-		// controlValue is only null after property page initialization
-		else if (controlValue == null) {
-			String controlIdSufixed = controlId + DQLTemplateControl.HIDDEN_FIELD_SUFIX_SEPARATOR;
-			Iterator<Entry<String, Object>> attributeIterator = attributes.entrySet().iterator();
-			while (attributeIterator.hasNext()) {
-				Entry<String, Object> attribute = attributeIterator.next();
-				if (attribute.getKey().startsWith(controlIdSufixed))
-					return (String) attribute.getValue();
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Checks if a hidden control has dependencies. This can be only evaluated during property page initialization
-	 * 
-	 * @param attributes
-	 * @return
-	 */
-	private boolean hasNoDependencies(Map<String, Object> attributes) {
-		String dependencies = (String) attributes.get(DialogProcessor.ATTR_DEPENDENCIES);
-
-		// dependencies attribute is passed during control initialization only,
-		// therefore lack of the attribute in the map doesn't mean that control
-		// has no dependencies
-		if (dependencies == null)
-			return false;
-
-		// this situation should not happen, as a dynamic control will always
-		// contain reference to hidden dql_template field
-		if (StringUtils.isBlank(dependencies))
-			return true;
-
-		String[] dependenciesArray = StringUtils.split(dependencies, ",");
-		if (dependenciesArray.length > 0) {
-			// if list of dependencies contains nothing but ids of hidden fields,
-			// than we consider the control to have no dependencies
-			// hidden fields contain _-_[parent_control] suffix
-			for (int i = 0; i < dependenciesArray.length; i++)
-				if (!StringUtils.contains(dependenciesArray[i], DQLTemplateControl.HIDDEN_FIELD_SUFIX_SEPARATOR))
-					return false;
-
-			boolean asynchronous = BooleanUtils.toBoolean((String) attributes.get(DialogProcessor.ATTR_ASYNCHRONOUS));
-			if (asynchronous)
-				LOGGER.warn("Asynchronous control with no dependencies found. The assistance DQL will be evaluated twice.");
-
-			// all dependencies contained "_-_" - this means the dynamic control has no dependencies
-			return true;
-		}
-
-		return false;
-
 	}
 }
