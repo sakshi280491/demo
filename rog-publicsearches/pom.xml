@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.roche.rogetmf</groupId>
 	<artifactId>rog-publicsearches</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>ROG-PublicSearches</name>
 	<modules>
@@ -51,20 +51,12 @@
 		</profile>
 	</profiles>
 
-	<scm>
-		<connection>scm:git:git@github.com:Roche/ROGeTMF.git</connection>
-		<developerConnection>scm:git:git@github.com:Roche/ROGeTMF.git</developerConnection>
-		<url>https://github.com/Roche/ROGeTMF</url>
-		<tag>HEAD</tag>
-	</scm>
-
-
-	<distributionManagement>
-		<site>
-			<id>gh-pages</id>
-			<url>https://github.com/Roche/ROGeTMF/</url>
-		</site>
-	</distributionManagement>
+    <scm>
+        <connection>scm:git:https://github.com/Roche/ROGeTMF.git</connection>
+        <developerConnection>scm:git:https://github.com/Roche/ROGeTMF.git</developerConnection>
+        <url>scm:git:https://github.com/Roche/ROGeTMF.git</url>
+        <tag>HEAD</tag>
+    </scm>
 
 	<build>
 		<plugins>
@@ -77,13 +69,16 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<useReleaseProfile>false</useReleaseProfile>
-					<releaseProfiles>release</releaseProfiles>
-					<autoVersionSubmodules>true</autoVersionSubmodules>
-				</configuration>
+				<version>2.5.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.9.2</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
