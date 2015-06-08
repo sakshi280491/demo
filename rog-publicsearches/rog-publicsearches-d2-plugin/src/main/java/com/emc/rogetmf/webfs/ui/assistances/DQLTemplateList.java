@@ -104,7 +104,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 				IDfQuery query = new DfQuery();
 
 				query.setDQL(dql.toString());
-				col = query.execute(session, 0);
+				col = query.execute(session, IDfQuery.READ_QUERY);
 
 				if (labelTemplateDefined) {
 					Template labelTemplate = templateConfiguration.getTemplate(LABEL_TEMPLATE);
