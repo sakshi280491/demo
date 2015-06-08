@@ -1,3 +1,0 @@
-Add here GXT resources
-
-
