@@ -112,18 +112,23 @@ public class OpenAjaxHubFactory {
 					logger.log(Level.FINE, "[OpenAjaxHubFactory] action: " + service + "." + method);
 					logger.log(Level.FINE, "[OpenAjaxHubFactory] callback_code: " + callbackCode);
 
-					String exceptionMessage = message.getParameter("service_exception");
-					String dfExceptionMessageId = message.getParameter("service_dfexception_id");
+					if (service == null && method == null && callbackCode == null) {
+						callEventCallback(eventName, message);
+					} else {
+						String exceptionMessage = message.getParameter("service_exception");
+						String dfExceptionMessageId = message.getParameter("service_dfexception_id");
 
-					if (exceptionMessage != null)
-						logger.log(Level.WARNING, "[OpenAjaxHubFactory] Service " + service + "." + method + " returned exception: "
-								+ exceptionMessage);
+						if (exceptionMessage != null)
+							logger.log(Level.WARNING, "[OpenAjaxHubFactory] Service " + service + "." + method + " returned exception: "
+									+ exceptionMessage);
 
-					if (dfExceptionMessageId != null)
-						logger.log(Level.WARNING, "[OpenAjaxHubFactory] Service " + service + "." + method + " returned DfException: "
-								+ dfExceptionMessageId);
+						if (dfExceptionMessageId != null)
+							logger.log(Level.WARNING, "[OpenAjaxHubFactory] Service " + service + "." + method + " returned DfException: "
+									+ dfExceptionMessageId);
 
-					callServiceCallback(service, method, callbackCode, message);
+						callServiceCallback(service, method, callbackCode, message);
+					}
+
 				} else {
 					callEventCallback(eventName, message);
 				}
@@ -235,6 +240,7 @@ public class OpenAjaxHubFactory {
 			AsyncCallback<HubConnectionMessage> connectCompletedCallback, AsyncCallback<Boolean> activeWidgetCallback,
 			AsyncCallback<OpenAjaxMessage> initWidgetCallback, AsyncCallback<HubEventMessage> oahCallback) /*-{ 
 		console.log("[OpenAjaxHubFactory] connect");
+		
 		console.log("[OpenAjaxHubFactory] create - creating eventCallbackTable");
 		$wnd.eventCallbackTable = {};
 		
