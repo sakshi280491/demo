@@ -48,10 +48,11 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+
 /**
  * Custom value provider for dynamic list controls supported by DQLs with FreeMarker syntax
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public final class DQLTemplateList implements IJavaAssistance {
@@ -175,7 +176,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 	 * @return
 	 */
 	private String getLabelTemplete(Map<String, Object> attributes) {
-		return DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE, true);
+		return DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE);
 	}
 
 	/**
@@ -187,7 +188,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 	private String[] getLabelTempleteAttrs(Map<String, Object> attributes) {
 		String[] labelTempleteAttrsArr = null;
 
-		String labelTempleteAttrs = DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE_ATTRS, true);
+		String labelTempleteAttrs = DQLTemplateUtils.getHiddenControlValue(attributes, DQLTemplateControl.ATTR_LABEL_TEMPLATE_ATTRS);
 
 		if (StringUtils.isNotBlank(labelTempleteAttrs))
 			labelTempleteAttrsArr = StringUtils.split(labelTempleteAttrs, LABEL_TEMPLATE_ATTRS_DELIM);
