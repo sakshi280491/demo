@@ -26,7 +26,7 @@ import com.emc.rogetmf.api.ROGETMFPublicSearchesVersion;
 /**
  * Custom service placeholder added so that plugin version is displayed in the About dialog
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public class D2SearchServicePlugin extends D2SearchService implements ID2fsPlugin {
