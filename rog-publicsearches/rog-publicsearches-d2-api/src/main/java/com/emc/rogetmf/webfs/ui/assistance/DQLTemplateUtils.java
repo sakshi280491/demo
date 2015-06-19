@@ -15,6 +15,7 @@
  ******************************************************************************/
 package com.emc.rogetmf.webfs.ui.assistance;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -24,6 +25,11 @@ import org.apache.commons.lang.StringUtils;
 
 import com.emc.d2fs.dctm.ui.DialogProcessor;
 
+/**
+ * Helper class for Freemarker Dynamic controls
+ * @author Krzysztof Jurkowski
+ *
+ */
 public class DQLTemplateUtils {
 
 	public static final String ATTR_EVALUATE_ON_INIT = "evaluateOnInit";
@@ -74,10 +80,23 @@ public class DQLTemplateUtils {
 
 	}
 
+	@SuppressWarnings("rawtypes")
 	public static String getHiddenControlValue(Map<String, Object> attributes, String controlId) {
-		// check if control has a preset value or ATTR_EVALUATE_ON_INIT is set to true
-		boolean evaluateOnInit = attributes.containsKey(DialogProcessor.ATTR_VALUE)
-				|| BooleanUtils.toBoolean((String) attributes.get(ATTR_EVALUATE_ON_INIT));
+		boolean evaluateOnInit = BooleanUtils.toBoolean((String) attributes.get(ATTR_EVALUATE_ON_INIT));
+
+		// check if control contains any value if evaluateOnInit was false
+		if (!evaluateOnInit) {
+			if (attributes.containsKey(DialogProcessor.ATTR_VALUE)) {
+				Object value = attributes.get(DialogProcessor.ATTR_VALUE);
+				// the value may be an ArrayList, check if is not empty
+				if (value instanceof Collection<?>)
+					evaluateOnInit = !((Collection) value).isEmpty();
+				else if (value instanceof String)
+					evaluateOnInit = StringUtils.isNotBlank((String) value);
+				else
+					evaluateOnInit = value != null;
+			}
+		}
 		return getHiddenControlValue(attributes, controlId, evaluateOnInit);
 	}
 

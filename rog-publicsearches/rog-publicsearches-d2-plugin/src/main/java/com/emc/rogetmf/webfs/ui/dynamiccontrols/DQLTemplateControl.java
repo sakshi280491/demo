@@ -35,11 +35,12 @@ import com.emc.d2fs.dctm.ui.dynamiccontrols.IDynamicControls;
 import com.emc.d2fs.dctm.web.services.D2fsContext;
 import com.emc.rogetmf.webfs.ui.assistance.DQLTemplateUtils;
 
+
 /**
  * Custom dynamic control which values are provided by a DQLs with FreeMarker syntax. This is a generic class, which can generate any type
  * of supported control, based on control_type attribute.
  * 
- * @author jurkowk1
+ * @author Krzysztof Jurkowski
  *
  */
 public final class DQLTemplateControl implements IDynamicControls {
@@ -132,9 +133,15 @@ public final class DQLTemplateControl implements IDynamicControls {
 		// value is a standard argument, thus it is not erased
 		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_VALUE, value);
 		listSupportXmlNode.setAttribute("control", Boolean.toString(true));
-		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_ENABLED_EDIT, Boolean.toString(false));
-		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_VISIBLE_EDIT, Boolean.toString(false));
 
+		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_VISIBLE_CREATE, Boolean.toString(false));
+		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_VISIBLE_EDIT, Boolean.toString(false));
+		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_VISIBLE_IMPORT, Boolean.toString(false));
+
+		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_ENABLED_CREATE, Boolean.toString(false));
+		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_ENABLED_EDIT, Boolean.toString(false));
+		listSupportXmlNode.setAttribute(DialogProcessor.ATTR_ENABLED_IMPORT, Boolean.toString(false));
+		
 		return listSupportXmlNode;
 	}
 }
