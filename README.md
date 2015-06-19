@@ -13,6 +13,7 @@ This project is published incrementally, adding one tutorial after another. Even
 ## Documentation
 A primary source of information are the tutorials published on EMC Community network:
 * [Tutorial1][]
+* [Tutorial2][]
 
 See also the current [Javadoc][].
 
@@ -66,4 +67,5 @@ This project is released under version 2.0 of the Apache License.
 Creator(s) of this project claims no intellectual property rights over this libraries nor take responsibility for any kind of damage caused by using it.
 
 [Tutorial1]:http://community.emc.com/people/KJurkowski/blog/2015/03/17/gxt-d2-widgets--part-1
+[Tutorial2]:http://community.emc.com/people/KJurkowski/blog/2015/06/19/dynamic-controls--gxt-d2-widgets--part-2
 [Javadoc]:http://roche.github.io/ROGeTMF/javadoc/
