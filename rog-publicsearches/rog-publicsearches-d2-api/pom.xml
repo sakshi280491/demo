@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.roche.rogetmf</groupId>
 		<artifactId>rog-publicsearches</artifactId>
-		<version>0.0.6-SNAPSHOT</version>
+		<version>0.0.7-SNAPSHOT</version>
 	</parent>
 	<artifactId>rog-publicsearches-d2-api</artifactId>
 	<name>ROG-Publicsearches-D2-API</name>
@@ -38,6 +38,12 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.roche.rogetmf</groupId>
+			<artifactId>rog-publicsearches-d2fs</artifactId>
+			<version>0.0.7-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -97,6 +103,6 @@
 			<groupId>com.emc.d2</groupId>
 			<artifactId>D2-API</artifactId>
 			<version>4.2.0</version>
-		</dependency>
+		</dependency>	
 	</dependencies>
 </project>
