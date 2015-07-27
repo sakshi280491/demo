@@ -1,0 +1,48 @@
+/** Add css rules here for your application. */
+.rog-widget {
+	
+}
+
+.rog-widget .x-ftree2-selected {
+	background-color: #000066 !important;
+}
+
+.rog-widget .x-ftree2-node-over {
+	background-color: #6565A2 !important;
+}
+
+.rog-widget .x-ftree2-selected .x-tree3-node-text,
+.rog-widget .x-ftree2-node-over .x-tree3-node-text {
+	color: #FFF !important;
+}
+
+.x-tree-menu {
+	background-color: white;
+	color: #555555; 
+	padding-top: 3px;
+	padding-bottom: 3px;
+	
+		
+}
+.x-tree-menu-item-default {
+	cursor: pointer;
+	padding: 3px 21px 3px 27px;
+	font-weight: bold;
+	width: 100%;
+	display: block;
+}
+
+.x-tree-menu-item {
+	cursor: pointer;
+	padding: 3px 21px 3px 27px;
+	width: 100%;
+	display: block;
+	
+}
+
+.x-menu-item-active span{
+	background-color: #000066;
+	color: white;
+	width: 100%;
+	display: block;
+}

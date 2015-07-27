@@ -13,31 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-/**
- * 
- */
-package com.emc.rogetmf.webfs.services.search;
+package com.roche.rogetmf.client.service;
 
-import com.emc.common.java.utils.IVersion;
-import com.emc.d2fs.dctm.web.services.ID2fsPlugin;
-import com.emc.d2fs.dctm.web.services.search.D2SearchService;
-import com.emc.rogetmf.api.ROGETMFPublicSearchesVersion;
+import com.roche.rogetmf.shared.oah.OpenAjaxMessage;
+import com.roche.rogetmf.shared.oah.ServiceCallback;
 
 /**
- * Custom service placeholder added so that plugin version is displayed in the About dialog
+ * Interface describing method for communication with an asynchronous service providing JSON data with child nodes of a given parent
  * 
  * @author Krzysztof Jurkowski
  *
  */
-public class D2SearchServicePlugin extends D2SearchService implements ID2fsPlugin {
+public interface IBrowserContentService {
 
-	private static final IVersion VERSION = new ROGETMFPublicSearchesVersion();
-
-	public String getFullName() {
-		return VERSION.getFullName();
-	}
-
-	public String getProductName() {
-		return VERSION.getProductName();
-	}
+	/**
+	 * Provides JSON data with child nodes of a given parent
+	 * 
+	 * @param type
+	 *            Type of the parent node
+	 * @param parentId
+	 *            Id of the parent node
+	 * @param callback
+	 *            Callback of asynchronous service - JSON data will be provided to the onSuccess method of the callback
+	 */
+	public void getBrowserContents(String type, String parentId, ServiceCallback<OpenAjaxMessage> callback);
 }
