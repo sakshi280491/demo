@@ -28,13 +28,14 @@ import org.slf4j.LoggerFactory;
 import com.documentum.fc.client.IDfPersistentObject;
 import com.emc.common.java.bundles.MultiResourceBundle;
 import com.emc.common.java.xml.XmlNode;
+import com.emc.d2.api.config.search.ID2cQueryDql;
 import com.emc.d2fs.dctm.exceptions.D2SilentException;
 import com.emc.d2fs.dctm.exceptions.D2WarningException;
 import com.emc.d2fs.dctm.ui.DialogProcessor;
 import com.emc.d2fs.dctm.ui.dynamiccontrols.IDynamicControls;
 import com.emc.d2fs.dctm.web.services.D2fsContext;
+import com.emc.rogetmf.webfs.service.QueryDqlObjectWebfsService;
 import com.emc.rogetmf.webfs.ui.assistance.DQLTemplateUtils;
-
 
 /**
  * Custom dynamic control which values are provided by a DQLs with FreeMarker syntax. This is a generic class, which can generate any type
@@ -100,7 +101,21 @@ public final class DQLTemplateControl implements IDynamicControls {
 				IDfPersistentObject object = context.getFirstObject();
 
 				if (object != null) {
-					if (!attributes.containsKey(ATTR_CONTROL) || !BooleanUtils.toBoolean((String) attributes.get(ATTR_CONTROL))) {
+					// if property page is bounded to a last search
+					if (ID2cQueryDql.D2C_QUERY_DQL.equalsIgnoreCase(object.getString("r_object_type"))) {
+						QueryDqlObjectWebfsService service = new QueryDqlObjectWebfsService(context);
+						
+						Map<String, Object> parameters = service.getQueryParameters(object);
+						if (parameters.containsKey(attributeName)) {
+							Object attributeValue = parameters.get(attributeName);
+
+							// if(attributeValue instanceof String)
+							listXmlNode.setAttribute(DialogProcessor.ATTR_VALUE, attributeValue);
+						}
+					}
+					// if control is bounded to an attribute ("linked to property"), pass the value of the attribute
+					// in this case "control" attribute is missing or set to false
+					else if (!attributes.containsKey(ATTR_CONTROL) || !BooleanUtils.toBoolean((String) attributes.get(ATTR_CONTROL))) {
 						String attributeValue = object.getValue(attributeName).asString();
 						listXmlNode.setAttribute(DialogProcessor.ATTR_VALUE, attributeValue);
 					}

@@ -48,7 +48,6 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-
 /**
  * Custom value provider for dynamic list controls supported by DQLs with FreeMarker syntax
  * 
@@ -105,7 +104,7 @@ public final class DQLTemplateList implements IJavaAssistance {
 				IDfQuery query = new DfQuery();
 
 				query.setDQL(dql.toString());
-				col = query.execute(session, IDfQuery.READ_QUERY);
+				col = query.execute(session, 0);
 
 				if (labelTemplateDefined) {
 					Template labelTemplate = templateConfiguration.getTemplate(LABEL_TEMPLATE);
