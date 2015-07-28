@@ -1,5 +1,17 @@
+com.emc.d2fs.schemas.models
+com.emc.rogetmf.api
+com.emc.rogetmf.d2fs.services
+com.emc.rogetmf.webfs
+com.emc.rogetmf.webfs.action
+com.emc.rogetmf.webfs.actions
+com.emc.rogetmf.webfs.dialogs
+com.emc.rogetmf.webfs.service
+com.emc.rogetmf.webfs.services.menu
 com.emc.rogetmf.webfs.ui.assistance
 com.emc.rogetmf.webfs.ui.assistances
 com.emc.rogetmf.webfs.ui.dynamiccontrols
 com.roche.rogetmf.client
+com.roche.rogetmf.client.callback
+com.roche.rogetmf.client.model
+com.roche.rogetmf.client.service
 com.roche.rogetmf.shared.oah
