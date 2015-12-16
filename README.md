@@ -14,6 +14,7 @@ This project is published incrementally, adding one tutorial after another. Even
 A primary source of information are the tutorials published on EMC Community network:
 * [Tutorial1][]
 * [Tutorial2][]
+* [Tutorial3][]
 
 See also the current [Javadoc][].
 
@@ -68,4 +69,5 @@ Creator(s) of this project claims no intellectual property rights over this libr
 
 [Tutorial1]:http://community.emc.com/people/KJurkowski/blog/2015/03/17/gxt-d2-widgets--part-1
 [Tutorial2]:http://community.emc.com/people/KJurkowski/blog/2015/06/19/dynamic-controls--gxt-d2-widgets--part-2
+[Tutorial3]:https://community.emc.com/people/KJurkowski/blog/2015/10/19/public-searches--gxt-d2-widgets--part-3
 [Javadoc]:http://roche.github.io/ROGeTMF/javadoc/
