@@ -27,9 +27,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.roche.rogetmf</groupId>
-			<artifactId>rog-widget-oah</artifactId>
-			<version>1.0.0</version>
+		<groupId>com.roche.rogetmf</groupId>
+		<artifactId>rog-publicsearches-oah</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 
