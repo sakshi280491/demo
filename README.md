@@ -1,3 +1,4 @@
+<h2> ROGeTMF repository was migrated to internal bitbucket. To get access please contact with Roche DevTools Support </h2>
 # RogETMF
 This project contains a series of tutorials about building EMC D2 Widgets using GXT.
 It also aims to provide a set of generic, helper projects, which can be used as a foundation for building environment independent, easy to maintain widgets for D2.
